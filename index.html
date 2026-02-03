@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentru Amyra 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0d1c;
+  --card:rgba(255,255,255,.08);
+  --paper:#ffffff;
+  --ink:#1f1f26;
+  --muted:#6b6b78;
+  --accent:#ff6fa3;
+  --accent2:#8b6cff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter,sans-serif;
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(255,111,163,.25), transparent 60%),
+    radial-gradient(900px 600px at 80% 30%, rgba(139,108,255,.25), transparent 60%),
+    var(--bg);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* HEARTS */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+.heart{
+  position:absolute;
+  bottom:-40px;
+  font-size:16px;
+  opacity:.6;
+  animation: float linear forwards;
+}
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-110vh);opacity:0}
+}
+
+/* STAGE */
+.stage{
+  width:min(760px,94vw);
+  background:var(--card);
+  backdrop-filter:blur(14px);
+  border-radius:24px;
+  padding:34px 28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  text-align:center;
+}
+
+/* INTRO */
+.intro h1{
+  font-family:"Playfair Display",serif;
+  font-size:34px;
+  margin:0 0 12px;
+}
+.intro p{
+  color:#d6d6f2;
+  line-height:1.7;
+  margin-bottom:26px;
+}
+
+button{
+  border:none;
+  border-radius:999px;
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn-yes{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#0b0d1c;
+}
+
+/* LETTER */
+.letter{
+  display:none;
+  background:var(--paper);
+  color:var(--ink);
+  padding:38px 34px;
+  border-radius:18px;
+  margin-top:10px;
+  text-align:left;
+  animation: unfold .6s ease forwards;
+}
+@keyframes unfold{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:none}
+}
+
+.letter h2{
+  font-family:"Playfair Display",serif;
+  margin-top:0;
+  margin-bottom:18px;
+}
+
+.letter p{
+  line-height:1.75;
+  margin:14px 0;
+}
+
+.details{
+  margin:22px 0;
+  padding-left:14px;
+  border-left:3px solid var(--accent);
+}
+.details p{margin:8px 0}
+
+.signature{
+  margin-top:28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.name{
+  font-family:"Great Vibes",cursive;
+  font-size:44px;
+  cursor:pointer;
+}
+
+.hint{
+  font-size:13px;
+  color:#555;
+}
+
+/* SECRET */
+.secret{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(8,8,16,.9);
+  padding:30px;
+  color:white;
+}
+
+.secret-box{
+  max-width:520px;
+  margin:12vh auto;
+  background:rgba(255,255,255,.08);
+  padding:28px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.secret-box h3{
+  font-family:"Playfair Display",serif;
+}
+
+.close{
+  margin-top:18px;
+  background:white;
+  color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="stage">
+
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <h1>Amyra 🤍</h1>
+    <p>
+      Nu știu dacă crezi în semne sau în coincidențe,<br>
+      dar acesta e un mesaj scris special pentru tine.
+    </p>
+    <button class="btn-yes" id="openLetter">DA 🤍</button>
+  </div>
+
+  <!-- LETTER -->
+  <div class="letter" id="letter">
+    <h2>Valentine’s Day</h2>
+
+    <p>Hei, Amyra,</p>
+
+    <p>
+      Will you be my Valentine? 🤍
+    </p>
+
+    <p>
+      Dacă da, eu — <strong>Tudor</strong> — te invit să petrecem
+      weekendul de Valentine’s Day împreună.
+    </p>
+
+    <div class="details">
+      <p><strong>Unde:</strong> locație secretă</p>
+      <p><strong>Când:</strong> cu o zi înainte de 14 februarie, până la ora 23:00, în București</p>
+      <p><strong>Dress code:</strong> cum te simți tu bine — pentru mine ești minunată oricum</p>
+    </div>
+
+    <p>
+      <strong>Mențiune importantă:</strong><br>
+      Vreau să îți reamintesc că în fiecare secundă mă gândesc la tine.
+    </p>
+
+    <div class="signature">
+      <div>
+        <p>Cu drag,</p>
+        <div class="name" id="openSecret">Tudor</div>
+      </div>
+      <div class="hint">Apasă pe nume ✨</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECRET -->
+<div class="secret" id="secret">
+  <div class="secret-box">
+    <h3>Un mic adevăr 🤍</h3>
+    <p>
+      Dacă ai ajuns aici, Amyra,<br>
+      atunci răspunsul tău înseamnă mai mult decât pare.
+    </p>
+    <p style="opacity:.85">
+      Promit că o să fiu prezent, atent și sincer — exact așa cum meriți.
+    </p>
+    <button class="close" onclick="secret.style.display='none'">Înapoi</button>
+  </div>
+</div>
+
+<script>
+/* hearts */
+const hearts=document.getElementById("hearts");
+function heart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=["🤍","💗","💕","💖"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=14+Math.random()*18+"px";
+  h.style.animationDuration=6+Math.random()*6+"s";
+  hearts.appendChild(h);
+  h.onanimationend=()=>h.remove();
+}
+setInterval(heart,420);
+
+/* open letter */
+openLetter.onclick=()=>{
+  intro.style.display="none";
+  letter.style.display="block";
+  for(let i=0;i<60;i++) setTimeout(heart,i*30);
+};
+
+/* secret */
+openSecret.onclick=()=>secret.style.display="block";
+</script>
+
+</body>
+</html>
